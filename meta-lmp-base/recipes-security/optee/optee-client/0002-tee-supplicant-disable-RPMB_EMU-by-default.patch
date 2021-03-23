@@ -1,0 +1,43 @@
+From 119815f1a775f34ef927142715bd31bb6eaae9bc Mon Sep 17 00:00:00 2001
+From: Ricardo Salveti <ricardo@foundries.io>
+Date: Tue, 23 Mar 2021 11:37:47 +0200
+Subject: [PATCH 2/2] tee-supplicant: disable RPMB_EMU by default
+
+Use the actual RPMB backend by default.
+
+Signed-off-by: Igor Opaniuk <igor.opaniuk@gmail.com>
+Signed-off-by: Ricardo Salveti <ricardo@foundries.io>
+---
+ tee-supplicant/CMakeLists.txt | 2 +-
+ tee-supplicant/Makefile       | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tee-supplicant/CMakeLists.txt b/tee-supplicant/CMakeLists.txt
+index e41ba8a..d26f407 100644
+--- a/tee-supplicant/CMakeLists.txt
++++ b/tee-supplicant/CMakeLists.txt
+@@ -4,7 +4,7 @@ project (tee-supplicant C)
+ # Configuration flags always included
+ ################################################################################
+ option (CFG_TA_TEST_PATH "Enable tee-supplicant to load from test/debug path" OFF)
+-option (RPMB_EMU "Enable tee-supplicant to emulate RPMB" ON)
++option (RPMB_EMU "Enable tee-supplicant to emulate RPMB" OFF)
+ option (CFG_TA_GPROF_SUPPORT "Enable tee-supplicant support for TAs instrumented with gprof" ON)
+ option (CFG_FTRACE_SUPPORT "Enable tee-supplicant support for TAs instrumented with ftrace" ON)
+ 
+diff --git a/tee-supplicant/Makefile b/tee-supplicant/Makefile
+index fa26154..640bbb7 100644
+--- a/tee-supplicant/Makefile
++++ b/tee-supplicant/Makefile
+@@ -4,7 +4,7 @@ include ../config.mk
+ OUT_DIR := $(OO)/tee-supplicant
+ 
+ # Emulate RPMB ioctl's by default
+-RPMB_EMU	?= 1
++RPMB_EMU	:= 0
+ 
+ .PHONY: all tee-supplicant clean
+ 
+-- 
+2.25.1
+
