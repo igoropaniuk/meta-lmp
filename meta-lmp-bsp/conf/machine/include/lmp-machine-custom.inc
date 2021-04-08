@@ -329,6 +329,7 @@ IMXBOOT_TARGETS_mx8mm = "flash_evk_spl"
 ## iMX8MM EVK
 OSTREE_KERNEL_ARGS_imx8mmevk ?= "console=tty1 console=ttymxc1,115200 earlycon=ec_imx6q,0x30890000,115200 root=/dev/mmcblk2p2 rootfstype=ext4"
 PREFERRED_PROVIDER_virtual/dtb_imx8mmevk ?= "lmp-device-tree"
+SOTA_CLIENT_FEATURES_append_imx8mmevk = " ubootenv"
 MACHINE_FEATURES_remove_imx8mmevk = "qca9377 qca6174"
 UBOOT_MACHINE_imx8mmevk = "imx8mm_evk_config"
 
