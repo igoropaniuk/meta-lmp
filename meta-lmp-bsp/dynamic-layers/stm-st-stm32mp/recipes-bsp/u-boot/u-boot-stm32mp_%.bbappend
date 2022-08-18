@@ -8,5 +8,9 @@ SRC_URI:append:stm32mp15-disco = " \
     file://lmp.cfg \
 "
 
+SRC_URI:append:stm32mp15-eval = " \
+    file://lmp.cfg \
+"
+
 # Drop work-shared usage, causes build race condition
 STAGING_UBOOT_DIR = "${S}"
