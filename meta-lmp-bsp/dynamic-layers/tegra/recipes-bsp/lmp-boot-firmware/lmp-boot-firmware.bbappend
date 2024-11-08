@@ -8,4 +8,4 @@ def get_dec_bsp_version(bsp_version):
     verparts = bsp_version.split('.')
     return int(verparts[0])<<16 | int(verparts[1])<<8 | int(verparts[2])
 
-LMP_BOOT_FIRMWARE_VERSION:tegra = "${@get_dec_bsp_version(d.getVar('L4T_VERSION'))}"
+LMP_BOOT_FIRMWARE_VERSION:tegra = "${@get_dec_bsp_version('35.8.0')}"
